@@ -1,0 +1,29 @@
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-color: #46a358;
+    --secondary-color: #3d3d3d; /* Binafsha */
+  }
+}
+
+.container2 {
+  width: 90%;
+  margin: 0 auto;
+}
+@media (min-width: 1440px) {
+  .container2 {
+    width: 1440px;
+  }
+}
+
+.swiper-pagination-bullet {
+  background: var(--primary-color);
+}
+
