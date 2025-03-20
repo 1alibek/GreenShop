@@ -3,7 +3,7 @@ import Products from "./products";
 
 const StoreProducts = () => {
   return (
-    <div className="flex items-start gap-5 border">
+    <div className="flex items-start gap-5 ">
      
       <Categories />
       <Products />

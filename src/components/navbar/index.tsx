@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Drawer, DrawerProps } from "antd";
 import { useState } from "react";
 
@@ -9,6 +9,7 @@ import logo from "../../assets/icons/logo.svg";
 import login from "../../assets/icons/login.svg";
 import shop from "../../assets/icons/shop.svg";
 import logoIcon from "../../../public/logo-icon.svg";
+import CookieUserInfo from "../../generic/cookies";
 
 import { BiSearch } from "react-icons/bi";
 import { CgMenuRightAlt } from "react-icons/cg";
@@ -31,7 +32,10 @@ const Navbar = () => {
   const dispatch = useReduxDispatch();
   const { pathname } = useLocation();
 
-  const user = JSON.parse(localStorage.getItem("user") as string);
+  const { isAuthorization, getCookie } = CookieUserInfo();
+  let user = getCookie("user");
+
+  const navigate = useNavigate();
   return (
     <div className="container2 flex items-center justify-between border-b border-primary max-[600px]:py-3">
       <Link to={"/"}>
@@ -62,10 +66,20 @@ const Navbar = () => {
           alt=""
         />
         <button
-          onClick={() => dispatch(setModalAuthVisibility())}
+          onClick={() => {
+            isAuthorization
+              ? navigate("/profile")
+              : dispatch(setModalAuthVisibility());
+          }}
           className="bg-primary text-white font-medium flex items-center gap-2 px-3 py-2 rounded-md border border-primary transition-all duration-300 hover:bg-transparent hover:text-primary max-[600px]:hidden"
         >
-          {user ? user.name : "Login"}
+          {isAuthorization ? (
+            user.name
+          ) : (
+            <>
+          Login
+            </>
+          )}
         </button>
         <button onClick={() => dispatch(setModalAuthVisibility())}>
           <img

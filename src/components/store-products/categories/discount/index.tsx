@@ -11,7 +11,7 @@ const Discount = () => {
   );
   const { discount_loader } = Loader();
   return (
-    <div className="w-full bg-[#eef7f1] text-center px-4 py-20px">
+    <div className="w-full bg-[#eef7f1] text-center px-4 py-20px mt-4">
       {isError || isLoading ? (
         discount_loader()
       ) : (
