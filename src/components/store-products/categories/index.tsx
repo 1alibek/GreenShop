@@ -15,7 +15,7 @@ const Categories = () => {
 
   const { category_loader } = Loader();
   return (
-    <div className="w-[310px] bg-[#fbfbfb] p-2">
+    <div className="w-[310px] bg-[#fbfbfb] p-2 max-[1000px]:hidden">
       <h3 className="text-[#3d3d3d] font-bold text-[16px]">Categories</h3>
       <div className="p-4">
         {isLoading || isError

@@ -34,7 +34,7 @@ const Products = () => {
   return (
     <div className="w-full">
       <ProductsTitle />
-      <div className="grid grid-cols-3 gap-4 mt-4">
+      <div className="grid grid-cols-3 gap-4 mt-4 max-[750px]:grid-cols-2 max-[500px]:grid-cols-1">
         {isLoading || isError
           ? card_loader()
           : data?.map((value) => <Card key={value._id} {...value} />)}
