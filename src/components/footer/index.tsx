@@ -4,7 +4,7 @@ import FooterTop from "./footer-top"
 
 const Footer = () => {
     return (
-        <footer className="pt-[80px] ">
+        <footer className="pt-[20px] ">
             <div className="container2 bg-[#FBFBFB] py-6">
                 <FooterTop />
                 <FooterMain/>

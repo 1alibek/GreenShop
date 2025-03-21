@@ -1,27 +1,42 @@
-import { useParams } from "react-router-dom";
-
-import UseQueryHandler from "../../hooks/useQueryHandler";
-import ShopSwiper from "./shop-swiper";
+import { useNavigate, useParams } from "react-router-dom";
 import { CardType, QueryType } from "../../@types";
+import UseQueryHandler from "../../hooks/useQueryHandler";
+import { LeftCircleOutlined } from "@ant-design/icons";
+import ShopSwiper from "./shop-swiper";
 import ShopInfo from "./shop-info";
+import ShopDescription from "./shop-info/plant-description";
+
+interface ParamsType {
+  category?: string;
+  id?: string;
+}
 
 const ShopComponent = () => {
-  const { category, id }: { category?: string; id?: string } = useParams();
+  const { category, id }: ParamsType = useParams();
   const { data, isError, isLoading }: QueryType<CardType> = UseQueryHandler({
-    pathname: "product-id",
-    url: `flower/category/${category}/${id}`,
+    pathname: "id_card",
+    url: `/flower/category/${category}/${id}`,
   });
- 
-  
+
+  const navigate = useNavigate();
 
   return (
-    <div className="py-8">
-        <div className="grid grid-cols-2 gap-10 container2">
-
-      <ShopSwiper data={data}  isError={isError} isLoading={isLoading} />
-      <ShopInfo data={data}  isError={isError} isLoading={isLoading} />
+    <section className="py-[30px]">
+      <div className="container2">
+        <p
+          onClick={() => navigate("/")}
+          className="mb-4 text-[#46a358] font-medium cursor-pointer text-[14px] border-b w-fit"
+        >
+          <LeftCircleOutlined /> back to products
+        </p>
+        <div className="grid grid-cols-2 gap-8 max-[980px]:grid-cols-1">
+          <ShopSwiper data={data} isLoading={isLoading} isError={isError} />
+          <ShopInfo data={data} isLoading={isLoading} isError={isError} />
         </div>
-    </div>
+
+        <ShopDescription data={data} isLoading={isLoading} isError={isError} />
+      </div>
+    </section>
   );
 };
 
