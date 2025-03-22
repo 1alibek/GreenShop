@@ -5,6 +5,7 @@ import { setModalAuthVisibility } from "../../../redux/modalSlice";
 import { NotificationApi } from "../../../generic/notifications";
 import { signInWithGoogle } from "../../../config";
 import CookieUserInfo from "../../../generic/cookies";
+import { getCoupon } from "../../../redux/shopSlice";
 
 export const useLoginMutation = () => {
   const axios = useAxios();
@@ -101,6 +102,30 @@ export const useRegisterWithGoogle = () => {
     },
     onError: (data) => {
       console.log(data);
+    },
+  });
+};
+
+export const useGetCoupon = () => {
+  const dispatch = useReduxDispatch();
+  const axios = useAxios();
+  const notify = NotificationApi();
+  return useMutation({
+    mutationFn: (coupon_code:string) =>
+      axios({
+        url: "features/coupon",
+       
+        params:{coupon_code}
+      }),
+
+    onSuccess: (data) => {
+     dispatch(getCoupon(Number(data.data.discount_for)))
+      notify("coupon")
+
+    },
+    onError: (data) => {
+      console.log(data);
+      notify("isnot-coupon")
     },
   });
 };

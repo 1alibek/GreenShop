@@ -61,3 +61,8 @@ export interface CardType {
   views: number;
   _id: string;
 }
+
+export interface CardDataType extends CardType{
+    counter:number
+    userPrice:number
+}

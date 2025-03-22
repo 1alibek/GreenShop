@@ -1,10 +1,17 @@
 import { FC } from "react";
-import { CardType } from "../../../../@types";
-import { HeartOutlined, SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+
+import { HeartOutlined, SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+
+import { CardType } from "../../../../@types";
+import { useReduxDispatch } from "../../../../hooks/useRedux";
+import { addData } from "../../../../redux/shopSlice";
+import { NotificationApi } from "../../../../generic/notifications";
 
 const Card: FC<CardType> = (props) => {
   const navigate=useNavigate()
+  const dispatch=useReduxDispatch()
+  const notify=NotificationApi()
   const style_icons: string =
     "bg-[#ffffff] w-[35px] h-[35px] flex rounded-lg  justify-center items-center cursor-pointer text-[20px]";
   return (
@@ -16,7 +23,10 @@ const Card: FC<CardType> = (props) => {
           alt={props.title}
         />
         <div className="hidden items-center absolute bottom-4 gap-5 group-hover:flex transition-all duration-300">
-          <div className={style_icons}>
+          <div onClick={()=>{
+            dispatch(addData(props)),
+            notify("add-data")
+          }} className={style_icons}>
             <ShoppingCartOutlined className="text-[22px]" />
           </div>
           <div className={style_icons}>

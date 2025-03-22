@@ -1,7 +1,6 @@
-import { useNavigate, useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 import { CardType, QueryType } from "../../@types";
 import UseQueryHandler from "../../hooks/useQueryHandler";
-import { LeftCircleOutlined } from "@ant-design/icons";
 import ShopSwiper from "./shop-swiper";
 import ShopInfo from "./shop-info";
 import ShopDescription from "./shop-info/plant-description";
@@ -18,17 +17,12 @@ const ShopComponent = () => {
     url: `/flower/category/${category}/${id}`,
   });
 
-  const navigate = useNavigate();
+
 
   return (
     <section className="py-[30px]">
       <div className="container2">
-        <p
-          onClick={() => navigate("/")}
-          className="mb-4 text-[#46a358] font-medium cursor-pointer text-[14px] border-b w-fit"
-        >
-          <LeftCircleOutlined /> back to products
-        </p>
+     
         <div className="grid grid-cols-2 gap-8 max-[980px]:grid-cols-1">
           <ShopSwiper data={data} isLoading={isLoading} isError={isError} />
           <ShopInfo data={data} isLoading={isLoading} isError={isError} />
