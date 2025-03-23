@@ -18,7 +18,7 @@ const Register = () => {
   const { mutate: RegisterWithGoogle } = useRegisterWithGoogle();
   return (
     <div>
-      <div className="w-[90%] mx-auto">
+      <div className="w-[95%] mx-auto">
         <p className="py-2 pt-6">Enter your username and password to login.</p>
         <Form
           initialValues={{ remember: true }}

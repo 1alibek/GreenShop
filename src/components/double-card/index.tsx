@@ -28,8 +28,8 @@ const DoubleCard = () => {
                             cheap and trendy plants
                         </p>
 
-                        <button className="bg-[#46a358] text-white flex justify-center items-center p-[8px_25px] rounded-md max-[410px]:w-full">
-                            Find More <PiArrowRight />
+                        <button className="bg-primary text-white font-normal flex items-center justify-center gap-2 px-3 py-2 rounded-md border border-primary transition-all duration-300 hover:bg-transparent hover:text-primary max-[410px]:w-full">
+                            Find More <PiArrowRight className="mt-[2px]" />
                         </button>
                     </div>
 
@@ -58,8 +58,9 @@ const DoubleCard = () => {
                             cheap and trendy plants
                         </p>
 
-                        <button className="bg-[#46a358] text-white flex justify-center items-center p-[8px_25px] rounded-md max-[410px]:w-full">
-                            Find More <PiArrowRight />
+                        <button           className="bg-primary text-white font-normal flex items-center gap-2 px-3 py-2 rounded-md border border-primary transition-all duration-300 hover:bg-transparent hover:text-primary max-[410px]:w-full"
+                        >
+                            Find More <PiArrowRight className="mt-[2px]"/>
                         </button>
                     </div>
 

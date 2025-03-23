@@ -28,3 +28,11 @@
 }
 
 .footermain{background: rgba(70, 163, 88, 0.1);}
+
+.ant-tooltip-inner {
+  background-color: #46a358 !important; /* Yashil fon */
+  color: white !important; /* Matn rangi */
+  font-size: 14px !important; /* Matn kattaligi */
+  border-radius: 8px !important; /* Yumaloq burchaklar */
+  padding: 6px !important;
+}

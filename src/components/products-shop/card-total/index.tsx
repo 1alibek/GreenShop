@@ -18,7 +18,7 @@ const CardTotal = () => {
   };
 
   return (
-    <div className="">
+    <div className="mt-9">
       <h3 className="pb-2 text-secondary border-b border-primary font-bold text-[18px]">
         Card Total
       </h3>
@@ -29,8 +29,8 @@ const CardTotal = () => {
           ref={inputRef}
           type="text"
           name="coupon"
-          placeholder="Enter coupon code here..."
-          className="border w-4/5 border-primary font-medium pl-[15px] plaseholder:font-normal rounded-l-lg rounded-r-none outline-none text-[14px]"
+          placeholder="Enter coupon... AEMA_MEM"
+          className="border w-4/5 border-primary font-medium pl-[15px] plaseholder:font-normal rounded-l-lg rounded-r-none outline-none text-[14px] max-[900px]:w-full"
         />
         <button className="bg-primary text-white font-medium  gap-2 px-3 py-2 rounded-r-lg border border-primary transition-all duration-300 hover:bg-transparent hover:text-primary rounded-l-none">
           {isPending ? <LoadingOutlined /> : "Apply"}

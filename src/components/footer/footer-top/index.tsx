@@ -57,7 +57,7 @@ const FooterTop = () => {
               className="h-full w-full outline-none px-2"
             />
 
-            <button className="h-full px-[20px] text-white bg-[#46a358]">
+            <button className="h-full px-[20px] text-white bg-[#46a358] border-l border-primary transition-all duration-300 hover:bg-transparent hover:text-primary">
               Join
             </button>
           </div>

@@ -8,7 +8,11 @@ const Shopping = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <div className=" items-center grid grid-cols-[2fr_1fr_1fr_1fr_1fr]  text-start border-b border-primary pb-3">
+      <div className="flex items-center gap-2 pb-3">
+        <h2 className="cursor-pointer" onClick={()=>navigate("/")}>Home </h2>
+        <h2 className="font-bold cursor-pointer"> / Shopping Cart </h2>
+      </div>
+      <div className=" items-center grid grid-cols-[2fr_1fr_1fr_1fr_1fr]  text-start border-b border-primary pb-3 max-[600px]:hidden">
         <h2 className="text-secondary text-[16px] font-medium mx-auto">
           Products
         </h2>
