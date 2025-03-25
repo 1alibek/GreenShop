@@ -4,10 +4,12 @@ import { useRef } from "react";
 import { NotificationApi } from "../../../generic/notifications";
 import { useGetCoupon } from "../../../hooks/useQueryHandler/useQueryActions";
 import { LoadingOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const CardTotal = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const notify = NotificationApi();
+  const navigate=useNavigate()
   const { mutate, isPending } = useGetCoupon();
   const getCoupon = () => {
     const coupon:string = inputRef.current?.value as string;
@@ -38,7 +40,7 @@ const CardTotal = () => {
       </Form>
       <Prices />
       <div className="flex flex-col gap-2 py-2">
-        <button className="bg-primary text-white font-medium  gap-2 px-3 py-2 rounded-md border border-primary transition-all duration-300 hover:bg-transparent hover:text-primary ">
+        <button onClick={()=>navigate("/proceed-checkout")} className="bg-primary text-white font-medium  gap-2 px-3 py-2 rounded-md border border-primary transition-all duration-300 hover:bg-transparent hover:text-primary ">
           Proceed To Checkout
         </button>
         <button className="bg-white text-primary font-medium  gap-2 px-3 py-2 rounded-md   transition-all duration-300 hover:bg-primary hover:text-white ">

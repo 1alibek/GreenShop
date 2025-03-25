@@ -66,3 +66,49 @@ export interface CardDataType extends CardType{
     counter:number
     userPrice:number
 }
+
+
+export interface WishlistItemType {
+  flower_id: string;
+  route_path: string;
+}
+interface BillingAdres {
+  country?: string;
+  town?: string;
+  street_address?: string;
+  additional_street_address?: string;
+  state?: string;
+  zip?: string;
+}
+export interface AuthUser {
+  _id?: string;
+  email?: string;
+  name?: string;
+  surname?: string;
+  profile_photo?: string;
+  create_account_limit?: number;
+  phone_number?: string;
+  wishlist?: WishlistItemType[];
+  username?: string;
+  billing_address?: BillingAdres;
+  followers?: string[];
+  permission?: {
+    create: boolean;
+    update: boolean;
+    delete: boolean;
+    read: boolean;
+  };
+}
+export interface MakeOrderType {
+  name: string;
+  surname: string;
+  country: string;
+  street: string;
+  email: string;
+  zip: string;
+  appartment: string;
+  town: string;
+  phone_number: string;
+  comment: string;
+  payment_method: string;
+}

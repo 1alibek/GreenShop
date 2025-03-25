@@ -46,7 +46,7 @@ const Prices = () => {
           </h2>
 
           {Boolean(coupon) && (
-            <h2 className="font-bold text-primary text-[18px]">$ {finalPrice}</h2>
+            <h2 className="!font-bold text-primary text-[18px]">$ {finalPrice}</h2>
           )}
         </div>
       </div>

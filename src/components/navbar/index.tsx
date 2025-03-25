@@ -1,8 +1,8 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Drawer, DrawerProps } from "antd";
+import { Badge, Drawer, DrawerProps } from "antd";
 import { useState } from "react";
 
-import { useReduxDispatch } from "../../hooks/useRedux";
+import { useReduxDispatch, useReduxSelector } from "../../hooks/useRedux";
 import { setModalAuthVisibility } from "../../redux/modalSlice";
 
 import logo from "../../assets/icons/logo.svg";
@@ -18,7 +18,7 @@ import { FaXmark } from "react-icons/fa6";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [placement] = useState<DrawerProps["placement"]>("left");
-
+const {data}=useReduxSelector(state=>state.shopSlice)
   const showDrawer = () => {
     setOpen(true);
   };
@@ -43,30 +43,37 @@ const Navbar = () => {
         <img className=" hidden max-[390px]:block" src={logoIcon} alt="" />
       </Link>
       <div className="flex items-center gap-5 py-5 max-[600px]:hidden">
+        <Link to={"/"}>
         <h3
           className={`cursor-pointer  relative pb-1 after:content-[''] font-medium after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full ${
             pathname === "/" && "text-primary text-[16px]"
           }`}
-        >
+          >
           Home
         </h3>
+          </Link>
+        <Link to={"/blogs"}>
         <h3
           className={`cursor-pointer  relative pb-1 after:content-[''] font-medium after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full ${
             pathname === "/blogs" && "text-primary text-[16px]"
           }`}
-        >
+          >
           Blogs
         </h3>
+          </Link>
       </div>
       <div className="flex items-center gap-5">
         <BiSearch className="w-[25px] h-[25px] max-[390px]:w-[20px]" />
-        <button onClick={()=>navigate("/products-shop")}>
+        <Badge count={data?.length}>
+
+        <button onClick={() => navigate("/products-shop")}>
           <img
             className="w-[25px] h-[25px] max-[390px]:w-[20px]"
             src={shop}
             alt=""
-          />
+            />
         </button>
+            </Badge>
         <button
           onClick={() => {
             isAuthorization

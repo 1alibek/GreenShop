@@ -1,17 +1,25 @@
-import { Empty } from "antd";
+import { Breadcrumb, Empty } from "antd";
 import { useReduxSelector } from "../../../hooks/useRedux";
 import Card from "./card";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Shopping = () => {
   const { data } = useReduxSelector((state) => state.shopSlice);
   const navigate = useNavigate();
   return (
     <div>
-      <div className="flex items-center gap-2 pb-3">
-        <h2 className="cursor-pointer" onClick={()=>navigate("/")}>Home </h2>
-        <h2 className="font-bold cursor-pointer"> / Shopping Cart </h2>
-      </div>
+      <Breadcrumb
+      className="pb-3"
+        items={[
+          {
+            title: <Link to="/">Home</Link>,
+          },
+
+          {
+            title: "Shopping card",
+          },
+        ]}
+      />
       <div className=" items-center grid grid-cols-[2fr_1fr_1fr_1fr_1fr]  text-start border-b border-primary pb-3 max-[600px]:hidden">
         <h2 className="text-secondary text-[16px] font-medium mx-auto">
           Products

@@ -5,7 +5,7 @@ import icon3 from "../../../assets/icons/footer/8.svg"
 
 const FooterMain = () => {
   return (
-    <div className="p-4 footermain grid grid-cols-4 max-[1000px]:hidden">
+    <div className="p-4 footermain grid grid-cols-4 max-[1000px]:hidden items-center">
         <img src={logo} alt="" />
         <div className="flex gap-2 items-center">
             <img src={icon1} alt="" />

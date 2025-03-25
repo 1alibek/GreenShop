@@ -3,6 +3,8 @@ import Home from "../pages/home";
 import Shop from "../pages/shop";
 import MainLayout from "../components/main-layout";
 import ProductsShop from "../pages/products-shop";
+import ProceedCheckout from "../pages/proceed-checkout";
+import Blogs from "../pages/blogs";
 
 export const router = createBrowserRouter([
   {
@@ -14,12 +16,20 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/blogs",
+        element: <Blogs />,
+      },
+      {
         path: "/shop/:category/:id",
         element: <Shop />,
       },
       {
         path: "/products-shop",
         element: <ProductsShop />,
+      },
+      {
+        path: "/proceed-checkout",
+        element: <ProceedCheckout />,
       },
     ],
   },

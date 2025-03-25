@@ -67,9 +67,14 @@ const shopSlice = createSlice({
     getCoupon(state, { payload }) {
       state.coupon = payload;
     },
+    order(state){
+      localStorage.removeItem("data")
+      state.coupon=0
+      state.data=[]
+    }
   },
 });
 
-export const { addData, deletedData, counterEdited, getCoupon } =
+export const { addData, deletedData, counterEdited, getCoupon ,order} =
   shopSlice.actions;
 export default shopSlice.reducer;

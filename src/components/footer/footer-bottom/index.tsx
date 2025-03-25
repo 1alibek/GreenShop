@@ -14,36 +14,36 @@ const FooterBottom = () => {
             <h2 className="mb-6 text-sm font-bold text-gray-900 uppercase">
               My Account
             </h2>
-            <ul className="text-gray-500 font-medium *:hover:text-[#46a358] *:cursor-pointer">
-              <li className="mb-2"> My Account</li>
-              <li className="mb-2">Our stores</li>
-              <li className="mb-2">Contact us</li>
-              <li className="mb-2">Career</li>
-              <li className="mb-2">Specials</li>
+            <ul>
+              <li className="mb-2 text-gray-500 font-medium hover:text-[#46a358] cursor-pointer"> My Account</li>
+              <li className="mb-2 text-gray-500 font-medium hover:text-[#46a358] cursor-pointer">Our stores</li>
+              <li className="mb-2 text-gray-500 font-medium hover:text-[#46a358] cursor-pointer">Contact us</li>
+              <li className="mb-2 text-gray-500 font-medium hover:text-[#46a358] cursor-pointer">Career</li>
+              <li className="mb-2 text-gray-500 font-medium hover:text-[#46a358] cursor-pointer">Specials</li>
             </ul>
           </div>
           <div className=" max-[1200px]:hidden">
             <h2 className="mb-6 text-sm font-bold text-gray-900 uppercase">
               Help & Guide
             </h2>
-            <ul className="text-gray-500 font-medium *:hover:text-[#46a358] *:cursor-pointer">
-              <li className="mb-2"> Help Center</li>
-              <li className="mb-2">How to Buy</li>
-              <li className="mb-2">Shipping & Delivery</li>
-              <li className="mb-2">Product Policy</li>
-              <li className="mb-2"> How to Return</li>
+            <ul >
+              <li className="mb-2 text-gray-500 font-medium hover:text-[#46a358] cursor-pointer"> Help Center</li>
+              <li className="mb-2 text-gray-500 font-medium hover:text-[#46a358] cursor-pointer">How to Buy</li>
+              <li className="mb-2 text-gray-500 font-medium hover:text-[#46a358] cursor-pointer">Shipping & Delivery</li>
+              <li className="mb-2 text-gray-500 font-medium hover:text-[#46a358] cursor-pointer">Product Policy</li>
+              <li className="mb-2 text-gray-500 font-medium hover:text-[#46a358] cursor-pointer"> How to Return</li>
             </ul>
           </div>
           <div className=" max-[630px]:hidden">
             <h2 className="mb-6 text-sm font-bold text-gray-900 uppercase">
               Categories
             </h2>
-            <ul className="text-gray-500 font-medium *:hover:text-[#46a358] *:cursor-pointer">
-              <li className="mb-2"> House Plants</li>
-              <li className="mb-2">Potter Plants</li>
-              <li className="mb-2">Seeds</li>
-              <li className="mb-2">Small Plants</li>
-              <li className="mb-2">Accessories</li>
+            <ul >
+              <li className="mb-2 text-gray-500 font-medium hover:text-[#46a358] cursor-pointer"> House Plants</li>
+              <li className="mb-2 text-gray-500 font-medium hover:text-[#46a358] cursor-pointer">Potter Plants</li>
+              <li className="mb-2 text-gray-500 font-medium hover:text-[#46a358] cursor-pointer">Seeds</li>
+              <li className="mb-2 text-gray-500 font-medium hover:text-[#46a358] cursor-pointer">Small Plants</li>
+              <li className="mb-2 text-gray-500 font-medium hover:text-[#46a358] cursor-pointer">Accessories</li>
             </ul>
           </div>
           <div className=" flex flex-col max-[630px]:items-center">

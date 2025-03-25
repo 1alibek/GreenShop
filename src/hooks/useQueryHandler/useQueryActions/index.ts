@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { useAxios } from "../../useAxios";
 import { useReduxDispatch } from "../../useRedux";
-import { setModalAuthVisibility } from "../../../redux/modalSlice";
+import { setModalAuthVisibility, setOrderModalVisibility } from "../../../redux/modalSlice";
 import { NotificationApi } from "../../../generic/notifications";
 import { signInWithGoogle } from "../../../config";
 import CookieUserInfo from "../../../generic/cookies";
@@ -111,21 +111,43 @@ export const useGetCoupon = () => {
   const axios = useAxios();
   const notify = NotificationApi();
   return useMutation({
-    mutationFn: (coupon_code:string) =>
+    mutationFn: (coupon_code: string) =>
       axios({
         url: "features/coupon",
-       
-        params:{coupon_code}
+
+        params: { coupon_code },
       }),
 
     onSuccess: (data) => {
-     dispatch(getCoupon(Number(data.data.discount_for)))
-      notify("coupon")
-
+      dispatch(getCoupon(Number(data.data.discount_for)));
+      notify("coupon");
     },
     onError: (data) => {
       console.log(data);
-      notify("isnot-coupon")
+      notify("isnot-coupon");
+    },
+  });
+};
+
+export const useMakeOrder = () => {
+  const dispatch = useReduxDispatch();
+  const axios = useAxios();
+  const notify = NotificationApi();
+  return useMutation({
+    mutationFn: (data: object) =>
+      axios({
+        url: "order/make-order",
+        method: "POST",
+        body: data,
+      }),
+
+    onSuccess: () => {
+      dispatch(setOrderModalVisibility());
+      
+    },
+    onError: (data) => {
+      console.log(data);
+     
     },
   });
 };
