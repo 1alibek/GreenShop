@@ -1,6 +1,8 @@
 import { FC } from "react";
-import { CardDataType } from "../../../../@types";
+
 import { DeleteFilled } from "@ant-design/icons";
+
+import { CardDataType } from "../../../../@types";
 import { useReduxDispatch } from "../../../../hooks/useRedux";
 import { counterEdited, deletedData } from "../../../../redux/shopSlice";
 import { NotificationApi } from "../../../../generic/notifications";

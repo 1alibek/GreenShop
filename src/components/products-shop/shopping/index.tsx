@@ -1,7 +1,8 @@
 import { Breadcrumb, Empty } from "antd";
+import { Link, useNavigate } from "react-router-dom";
+
 import { useReduxSelector } from "../../../hooks/useRedux";
 import Card from "./card";
-import { Link, useNavigate } from "react-router-dom";
 
 const Shopping = () => {
   const { data } = useReduxSelector((state) => state.shopSlice);

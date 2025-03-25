@@ -1,4 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
+
 import { useAxios } from "../../useAxios";
 import { useReduxDispatch } from "../../useRedux";
 import { setModalAuthVisibility, setOrderModalVisibility } from "../../../redux/modalSlice";
@@ -132,7 +133,6 @@ export const useGetCoupon = () => {
 export const useMakeOrder = () => {
   const dispatch = useReduxDispatch();
   const axios = useAxios();
-  const notify = NotificationApi();
   return useMutation({
     mutationFn: (data: object) =>
       axios({

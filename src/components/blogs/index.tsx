@@ -1,11 +1,12 @@
 import { SearchOutlined } from "@ant-design/icons";
+
 import CookieUserInfo from "../../generic/cookies";
 import { useReduxDispatch } from "../../hooks/useRedux";
 import { setModalAuthVisibility } from "../../redux/modalSlice";
 
 const BlogsComponent = () => {
   const dispatch = useReduxDispatch();
-  const { isAuthorization, getCookie } = CookieUserInfo();
+  const { isAuthorization } = CookieUserInfo();
   return (
     <div className="container2">
       {isAuthorization ? (

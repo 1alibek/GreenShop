@@ -1,10 +1,12 @@
 import { Form } from "antd";
-import Prices from "./prices";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { LoadingOutlined } from "@ant-design/icons";
+
+import Prices from "./prices";
 import { NotificationApi } from "../../../generic/notifications";
 import { useGetCoupon } from "../../../hooks/useQueryHandler/useQueryActions";
-import { LoadingOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
 
 const CardTotal = () => {
   const inputRef = useRef<HTMLInputElement>(null);

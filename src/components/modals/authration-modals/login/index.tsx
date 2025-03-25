@@ -1,12 +1,13 @@
 import { Form, Input } from "antd";
 import { FieldType } from "../../../../@types";
 
+import { LoadingOutlined } from "@ant-design/icons";
+
 import google from "../../../../assets/icons/google.svg";
 import facebook from "../../../../assets/icons/facebook.svg";
 
 import { useLoginMutation, useLoginWithGoogle } from "../../../../hooks/useQueryHandler/useQueryActions";
 
-import { LoadingOutlined } from "@ant-design/icons";
 
 const Login = () => {
   const { mutate, isPending } = useLoginMutation();

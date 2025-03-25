@@ -1,4 +1,5 @@
 import {useParams } from "react-router-dom";
+
 import { CardType, QueryType } from "../../@types";
 import UseQueryHandler from "../../hooks/useQueryHandler";
 import ShopSwiper from "./shop-swiper";

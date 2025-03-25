@@ -1,12 +1,13 @@
 import { Form, Input, Radio } from "antd";
 
 import img from "../../../assets/img/payment.png";
+import { LoadingOutlined } from "@ant-design/icons";
+
 import CookieUserInfo from "../../../generic/cookies";
 import { useReduxDispatch, useReduxSelector } from "../../../hooks/useRedux";
 import { setModalAuthVisibility } from "../../../redux/modalSlice";
 import { AuthUser, MakeOrderType } from "../../../@types";
 import { useMakeOrder } from "../../../hooks/useQueryHandler/useQueryActions";
-import { LoadingOutlined } from "@ant-design/icons";
 const ProceedForm = () => {
   const { isAuthorization, getCookie } = CookieUserInfo();
   const dispatch = useReduxDispatch();

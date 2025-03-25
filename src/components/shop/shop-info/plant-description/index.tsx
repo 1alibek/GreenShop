@@ -1,6 +1,6 @@
 import { FC } from "react";
-
 import { Skeleton } from "antd";
+
 import { CardType, QueryType } from "../../../../@types";
 
 const ShopDescription: FC<QueryType<CardType>> = ({ data }) => {

@@ -1,7 +1,9 @@
 import { Modal } from "antd";
-import Login from "./login";
 import { useState } from "react";
+
+import Login from "./login";
 import Register from "./register";
+
 import { useReduxDispatch, useReduxSelector } from "../../../hooks/useRedux";
 import { setModalAuthVisibility } from "../../../redux/modalSlice";
 
