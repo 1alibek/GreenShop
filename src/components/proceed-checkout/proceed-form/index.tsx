@@ -11,7 +11,7 @@ import { useMakeOrder } from "../../../hooks/useQueryHandler/useQueryActions";
 const ProceedForm = () => {
   const { isAuthorization, getCookie } = CookieUserInfo();
   const dispatch = useReduxDispatch();
-  const auth: AuthUser = getCookie("user");
+  const auth: AuthUser | null = getCookie("user"); // auth null bo'lishi mumkinligini belgilash
   const { data, coupon } = useReduxSelector((state) => state.shopSlice);
   const totalPrice = data.reduce((acc, value) => (acc += value.userPrice), 16);
   let total = coupon ? totalPrice - (totalPrice * coupon) / 100 : totalPrice;
@@ -35,19 +35,16 @@ const ProceedForm = () => {
         layout="vertical"
         onFinish={order}
         fields={[
-          { name: "name", value: auth.name },
-          { name: "surname", value: auth.surname },
-          { name: "country", value: auth.billing_address?.country },
-          { name: "street", value: auth.billing_address?.street_address },
-          { name: "state", value: auth.billing_address?.state },
-          { name: "email", value: auth.email },
-          { name: "zip", value: auth.billing_address?.zip },
-          {
-            name: "appartment",
-            value: auth.billing_address?.additional_street_address,
-          },
-          { name: "town", value: auth.billing_address?.town },
-          { name: "phone_number", value: auth.phone_number },
+          { name: "name", value: auth?.name ?? "" },
+          { name: "surname", value: auth?.surname ?? "" },
+          { name: "country", value: auth?.billing_address?.country ?? "" },
+          { name: "street", value: auth?.billing_address?.street_address ?? "" },
+          { name: "state", value: auth?.billing_address?.state ?? "" },
+          { name: "email", value: auth?.email ?? "" },
+          { name: "zip", value: auth?.billing_address?.zip ?? "" },
+          { name: "appartment", value: auth?.billing_address?.additional_street_address ?? "" },
+          { name: "town", value: auth?.billing_address?.town ?? "" },
+          { name: "phone_number", value: auth?.phone_number ?? "" },
         ]}
       >
         <div className="grid grid-cols-2 gap-5">
