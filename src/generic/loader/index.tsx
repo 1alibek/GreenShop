@@ -43,7 +43,32 @@ const Loader = () => {
       );
     });
   };
-  return { category_loader, discount_loader, card_loader, image_loading,blog_card_loader };
+  const blog_id_Rending = () => (
+    <div>
+      <div className="flex gap-4">
+        <Skeleton.Avatar active />
+        <Skeleton.Input active />
+      </div>
+      <div>
+        <Skeleton.Input active className="my-[15px]" />
+        {Array.from({ length: 20 }).map((_, idx) => (
+          <Skeleton.Input
+            key={idx}
+            active
+            className="!w-full my-[10px] h-[15px]"
+          />
+        ))}
+      </div>
+    </div>
+  );
+  return {
+    category_loader,
+    discount_loader,
+    card_loader,
+    image_loading,
+    blog_card_loader,
+    blog_id_Rending,
+  };
 };
 
 export default Loader;
