@@ -5,6 +5,8 @@ import MainLayout from "../components/main-layout";
 import ProductsShop from "../pages/products-shop";
 import ProceedCheckout from "../pages/proceed-checkout";
 import Blogs from "../pages/blogs";
+import Rendering from "../components/blogs/rendering";
+import Profile from "../pages/profile";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ export const router = createBrowserRouter([
       {
         path: "/proceed-checkout",
         element: <ProceedCheckout />,
+      },
+      {
+        path: "/blog/:created_by/:id",
+        element: <Rendering />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },

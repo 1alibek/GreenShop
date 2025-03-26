@@ -1,4 +1,4 @@
-import { Skeleton } from "antd";
+import { Card, Skeleton } from "antd";
 
 const Loader = () => {
   const category_loader = () => {
@@ -26,15 +26,24 @@ const Loader = () => {
     ));
   };
   const image_loading = () => {
-    return Array.from({length: 4}).map((_, idx) => (
-        <Skeleton.Image
-            key={idx}
-            active
-            className="!w-[90px] !h-[90px] max-[600px]:!h-[60px] max-[600px]:!w-[60px]"
-        />
-    ))
-}
-  return { category_loader, discount_loader, card_loader ,image_loading};
+    return Array.from({ length: 4 }).map((_, idx) => (
+      <Skeleton.Image
+        key={idx}
+        active
+        className="!w-[90px] !h-[90px] max-[600px]:!h-[60px] max-[600px]:!w-[60px]"
+      />
+    ));
+  };
+  const blog_card_loader = () => {
+    return Array.from({ length: 6 }).map((_, idx) => {
+      return (
+        <Card key={idx}>
+          <Skeleton />
+        </Card>
+      );
+    });
+  };
+  return { category_loader, discount_loader, card_loader, image_loading,blog_card_loader };
 };
 
 export default Loader;
