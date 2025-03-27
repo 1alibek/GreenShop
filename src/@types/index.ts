@@ -62,11 +62,10 @@ export interface CardType {
   _id: string;
 }
 
-export interface CardDataType extends CardType{
-    counter:number
-    userPrice:number
+export interface CardDataType extends CardType {
+  counter: number;
+  userPrice: number;
 }
-
 
 export interface WishlistItemType {
   flower_id: string;
@@ -113,7 +112,6 @@ export interface MakeOrderType {
   payment_method: string;
 }
 
-
 export interface BlogType {
   content: string;
   created_at: string;
@@ -122,5 +120,12 @@ export interface BlogType {
   short_description: string;
   title: string;
   views: number;
-  _id:string
+  _id: string;
+}
+export interface PathProfileType {
+  id: number;
+  title: string;
+  path: string;
+  Components: React.FC;
+  Icon: React.ForwardRefExoticComponent<any>;
 }

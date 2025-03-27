@@ -1,35 +1,27 @@
-import { useState } from "react";
-import { ProfileOutlined, ShoppingOutlined, EnvironmentOutlined, HeartOutlined, ClockCircleOutlined, LogoutOutlined } from "@ant-design/icons";
+import { LogoutOutlined } from "@ant-design/icons";
+import { path_profile } from "../../../utils";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
-  const [active, setActive] = useState("Account Details");
-
- 
-  const menuItems = [
-    { name: "Account Details", icon: <ProfileOutlined /> },
-    { name: "My Products", icon: <ShoppingOutlined /> },
-    { name: "Address", icon: <EnvironmentOutlined /> },
-    { name: "Wishlist", icon: <HeartOutlined /> },
-    { name: "Track Order", icon: <ClockCircleOutlined /> },
-  ];
-
+  const activeStyle: string = "border-l-4 border-primary bg-white text-primary";
+  const { pathname } = useLocation();
+  const pathnameSecond = pathname.slice(9);
+  const navigate=useNavigate()
   return (
     <div className="bg-[#fbfbfb] p-4">
-     
       <h1 className="font-bold text-xl">My Account</h1>
 
- 
       <div className="mt-3 space-y-2 text-gray-700">
-        {menuItems.map((item) => (
+        {path_profile.map(({ Icon, id, title ,path}) => (
           <div
-            key={item.name}
-            className={`flex items-center gap-3 p-3 cursor-pointer rounded-md transition-all ${
-              active === item.name ? "text-primary border-l-4 border-primary bg-green-50" : "hover:text-primary"
-            }`}
-            onClick={() => setActive(item.name)}
+          onClick={()=>navigate(`/profile/${path}`)}
+            key={id}
+            className={`${
+              path === pathnameSecond && activeStyle
+            } flex items-center gap-3 p-3 text-[18px] cursor-pointer rounded-md transition-all`}
           >
-            {item.icon}
-            {item.name}
+            <Icon />
+            <h3>{title}</h3>
           </div>
         ))}
       </div>

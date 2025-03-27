@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import Main from "./main";
 import Sidebar from "./sidebar";
 
@@ -7,6 +8,7 @@ const ProfileComponent = () => {
       <div>
         <Sidebar />
       </div>
+      <Outlet/>
       <div>
         <Main />
       </div>

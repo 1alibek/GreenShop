@@ -7,6 +7,7 @@ import ProceedCheckout from "../pages/proceed-checkout";
 import Blogs from "../pages/blogs";
 import Rendering from "../components/blogs/rendering";
 import Profile from "../pages/profile";
+import { path_profile } from "../utils";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+        children: path_profile.map(({ path, Components }) => ({
+          path: `${path}`,
+          element: <Components />,
+        })),
       },
     ],
   },
