@@ -2,7 +2,10 @@ import { useMutation } from "@tanstack/react-query";
 
 import { useAxios } from "../../useAxios";
 import { useReduxDispatch } from "../../useRedux";
-import { setModalAuthVisibility, setOrderModalVisibility } from "../../../redux/modalSlice";
+import {
+  setModalAuthVisibility,
+  setOrderModalVisibility,
+} from "../../../redux/modalSlice";
 import { NotificationApi } from "../../../generic/notifications";
 import { signInWithGoogle } from "../../../config";
 import CookieUserInfo from "../../../generic/cookies";
@@ -143,11 +146,26 @@ export const useMakeOrder = () => {
 
     onSuccess: () => {
       dispatch(setOrderModalVisibility());
-      
     },
     onError: (data) => {
       console.log(data);
-     
+    },
+  });
+};
+export const useEditAddress = () => {
+  const axios = useAxios();
+  const notify = NotificationApi();
+  return useMutation({
+    mutationFn: (data: object) => {
+      return axios({
+        url: "user/address",
+        method: "POST",
+        body: data, 
+      });
+    },
+    onSuccess: (data) => {
+      notify("address")
+      console.log(data);
     },
   });
 };

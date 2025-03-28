@@ -91,6 +91,12 @@ export interface AuthUser {
   username?: string;
   billing_address?: BillingAdres;
   followers?: string[];
+  country?:string
+  town?:string
+  street_address?:string
+  additional_street_address?:string
+  state?:string
+  zip?:string
   permission?: {
     create: boolean;
     update: boolean;

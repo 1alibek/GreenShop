@@ -8,7 +8,9 @@ type NotificationsType =
   | "delete-data"
   | "not-coupon"
   | "isnot-coupon"
-  | "coupon";
+  | "coupon"
+  | "address"
+  | "details";
 export const NotificationApi = () => {
   const notify = (type: NotificationsType) => {
     switch (type) {
@@ -18,28 +20,36 @@ export const NotificationApi = () => {
         return notification.success({ message: "Register succsesfull" });
       case "login-google":
         return notification.success({
-          message: "Login with google succsesfull",
+          message: "Login with google succsesfull !",
         });
       case "add-data":
         return notification.success({
-          message: " Added data to card",
+          message: " Added data to card !",
         });
       case "delete-data":
         return notification.success({
-          message: "Delete card",
+          message: "Delete card !",
         });
         case "not-coupon":
           return notification.success({
-            message: "Plese enter coupon",
+            message: "Plese enter coupon !",
           });
           case "isnot-coupon":
             return notification.error({
-              message: "Coupon is not defined",
+              message: "Coupon is not defined !",
             });
             case "coupon":
               return notification.success({
-                message: "Coupon successfull",
+                message: "Coupon successfull !",
               });
+              case "address":
+                return notification.success({
+                  message: "Edited address !",
+                });
+                case "details":
+                  return notification.success({
+                    message: "Edited user details !",
+                  });
       default:
         break;
     }
