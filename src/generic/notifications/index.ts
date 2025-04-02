@@ -10,7 +10,10 @@ type NotificationsType =
   | "isnot-coupon"
   | "coupon"
   | "address"
-  | "details";
+  | "details"
+  | "like"
+  | "order"
+  | "dislike";
 export const NotificationApi = () => {
   const notify = (type: NotificationsType) => {
     switch (type) {
@@ -30,26 +33,38 @@ export const NotificationApi = () => {
         return notification.success({
           message: "Delete card !",
         });
-        case "not-coupon":
-          return notification.success({
-            message: "Plese enter coupon !",
-          });
-          case "isnot-coupon":
-            return notification.error({
-              message: "Coupon is not defined !",
-            });
-            case "coupon":
-              return notification.success({
-                message: "Coupon successfull !",
-              });
-              case "address":
-                return notification.success({
-                  message: "Edited address !",
-                });
-                case "details":
-                  return notification.success({
-                    message: "Edited user details !",
-                  });
+      case "not-coupon":
+        return notification.success({
+          message: "Plese enter coupon !",
+        });
+      case "isnot-coupon":
+        return notification.error({
+          message: "Coupon is not defined !",
+        });
+      case "coupon":
+        return notification.success({
+          message: "Coupon successfull !",
+        });
+      case "address":
+        return notification.success({
+          message: "Edited address !",
+        });
+      case "details":
+        return notification.success({
+          message: "Edited user details !",
+        });
+      case "like":
+        return notification.success({
+          message: "Added to like !",
+        });
+      case "dislike":
+        return notification.success({
+          message: "Deleted to like !",
+        });
+      case "order":
+        return notification.success({
+          message: "Order deleted !",
+        });
       default:
         break;
     }

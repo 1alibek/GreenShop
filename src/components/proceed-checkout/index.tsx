@@ -22,7 +22,7 @@ const ProceedCheckoutComponent = () => {
           },
         ]}
       />
-      <div className="grid grid-cols-[1.5fr_1fr] gap-5">
+      <div className="grid grid-cols-[1.5fr_1fr] gap-5 max-[800px]:grid-cols-1">
         <ProceedForm />
         <ProceedTotal />
       </div>

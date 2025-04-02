@@ -29,7 +29,7 @@ const Rendering = () => {
   const dataLoading: boolean = isError || isLoading;
   const { blog_id_Rending } = Loader();
   return (
-    <section className="w-[80%] m-auto">
+    <section className="w-[80%] m-auto min-[1540px]:w-[1440px] max-[550px]:w-[90%]">
       {usersLoading || dataLoading ? (
         blog_id_Rending()
       ) : (
@@ -48,12 +48,12 @@ const Rendering = () => {
                 <p>Followers {user?.followers?.length}</p>
               </div>
             </div>
-            <button className="bg-primary text-white font-medium flex items-center gap-2 px-3 py-2 rounded-md border border-primary transition-all duration-300 hover:bg-transparent hover:text-primary">
-              <PlusCircleOutlined /> Follow
+            <button className="bg-primary text-white font-medium flex items-center gap-2 px-3 py-2 rounded-md border border-primary transition-all duration-300 hover:bg-transparent hover:text-primary max-[550px]:text-sm">
+              <PlusCircleOutlined /> <p className="max-[400px]:hidden">Follow</p>
             </button>
           </div>
           <div>
-            <h1 className="text-2xl my-4 font-bold">{data?.title}</h1>
+            <h1 className="text-2xl my-4 font-bold max-[550px]:text-lg max-[315px]:text-[16px]">{data?.title}</h1>
 
             <div
               dangerouslySetInnerHTML={{ __html: data?.content as string }}

@@ -91,12 +91,12 @@ export interface AuthUser {
   username?: string;
   billing_address?: BillingAdres;
   followers?: string[];
-  country?:string
-  town?:string
-  street_address?:string
-  additional_street_address?:string
-  state?:string
-  zip?:string
+  country?: string;
+  town?: string;
+  street_address?: string;
+  additional_street_address?: string;
+  state?: string;
+  zip?: string;
   permission?: {
     create: boolean;
     update: boolean;
@@ -133,5 +133,48 @@ export interface PathProfileType {
   title: string;
   path: string;
   Components: React.FC;
-  Icon: React.ForwardRefExoticComponent<any>;
+  Icon: React.ComponentType;
+}
+
+export interface OrderType {
+  billing_address: BillingAdres;
+  created_at: string;
+  created_by: string;
+  extra_shop_info: {
+    total: number;
+    method: string;
+  };
+  shop_List: CardDataType[];
+  _id: string;
+}
+export interface AddressType {
+  name: string;
+  surname: string;
+  country: string;
+  town: string;
+  street_address: string;
+  additional_street_address?: string;
+  state: string;
+  zip: string;
+  email: string;
+  phone_number: string;
+}
+
+export interface AccountDetails {
+  name: string;
+  surname: string;
+  email: string;
+  phone_number: string;
+  username: string;
+  profile_photo: ProfilePhoto;
+}
+
+interface ProfilePhoto {
+  file: {
+    response: {
+      image_url: {
+        url: string;
+      };
+    };
+  };
 }

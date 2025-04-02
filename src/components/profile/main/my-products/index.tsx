@@ -11,7 +11,7 @@ const MyProducts = () => {
 const {card_loader}=Loader()
   return (
     <div>
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-3 max-[1000px]:grid-cols-2 max-[550px]:grid-cols-1">
         {isError||isLoading?card_loader():data?.map((value) => (
           <Card key={value._id} {...value} />
         ))}

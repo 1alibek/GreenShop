@@ -1,22 +1,59 @@
-import { FC } from "react";
+import { Tooltip } from "antd";
+import { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import {
+  HeartFilled,
   HeartOutlined,
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 
-import { CardType } from "../../../../@types";
+import { AuthUser, CardType, WishlistItemType } from "../../../../@types";
 import { useReduxDispatch } from "../../../../hooks/useRedux";
 import { addData } from "../../../../redux/shopSlice";
 import { NotificationApi } from "../../../../generic/notifications";
-import { Tooltip } from "antd";
+import CookieUserInfo from "../../../../generic/cookies";
+import {
+  useDeleteIsLiked,
+  useIsLiked,
+} from "../../../../hooks/useQueryHandler/useQueryActions";
 
 const Card: FC<CardType> = (props) => {
   const navigate = useNavigate();
   const dispatch = useReduxDispatch();
   const notify = NotificationApi();
+  const { mutate: disLiked } = useDeleteIsLiked();
+  const { mutate } = useIsLiked();
+  const { getCookie, setCookie } = CookieUserInfo();
+  let user: AuthUser = getCookie("user");
+  const [wishlist, setWishlist] = useState<WishlistItemType[]>(
+    user?.wishlist || []
+  );
+  const isLiked = wishlist.some((item) => item.flower_id === props._id);
+  const isLike = () => {
+    user = {
+      ...user,
+      wishlist: [
+        ...(user.wishlist as WishlistItemType[]),
+        { route_path: props.category, flower_id: props._id },
+      ],
+    };
+    setWishlist(user.wishlist!);
+    setCookie("user", user);
+    mutate({ route_path: props.category, flower_id: props._id });
+  };
+  const disLike = () => {
+    user = {
+      ...user,
+      wishlist: [
+        ...user.wishlist!?.filter((value) => value.flower_id !== props._id),
+      ],
+    };
+    setWishlist(user.wishlist!);
+    setCookie("user", user);
+    disLiked({ _id: props._id as string });
+  };
   const style_icons: string =
     "bg-[#ffffff] w-[35px] h-[35px] flex rounded-lg  justify-center items-center cursor-pointer text-[20px] text-primary border border-primary";
   return (
@@ -30,7 +67,8 @@ const Card: FC<CardType> = (props) => {
         <div className="hidden items-center absolute bottom-4 gap-5 group-hover:flex transition-all duration-300">
           <div
             onClick={() => {
-              dispatch(addData(props)), notify("add-data");
+              dispatch(addData(props));
+              notify("add-data");
             }}
             className={style_icons}
           >
@@ -38,9 +76,15 @@ const Card: FC<CardType> = (props) => {
               <ShoppingCartOutlined className="text-[22px]" />
             </Tooltip>
           </div>
-          <div className={style_icons}>
-            <HeartOutlined className="text-[22px]" />
-          </div>
+          {isLiked ? (
+            <div onClick={disLike} className={style_icons}>
+              <HeartFilled className="text-[22px] text-[red]" />
+            </div>
+          ) : (
+            <div onClick={isLike} className={style_icons}>
+              <HeartOutlined className="text-[22px]" />
+            </div>
+          )}
           <div
             onClick={() => navigate(`/shop/${props.category}/${props._id}`)}
             className={style_icons}

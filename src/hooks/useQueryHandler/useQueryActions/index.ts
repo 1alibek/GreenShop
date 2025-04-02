@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { useAxios } from "../../useAxios";
 import { useReduxDispatch } from "../../useRedux";
@@ -10,6 +10,7 @@ import { NotificationApi } from "../../../generic/notifications";
 import { signInWithGoogle } from "../../../config";
 import CookieUserInfo from "../../../generic/cookies";
 import { getCoupon } from "../../../redux/shopSlice";
+import { OrderType } from "../../../@types";
 
 export const useLoginMutation = () => {
   const axios = useAxios();
@@ -20,7 +21,7 @@ export const useLoginMutation = () => {
     mutationFn: (data: object) =>
       axios({ url: "user/sign-in", method: "POST", body: data }),
     onSuccess: (data) => {
-      let { token, user } = data.data;
+      const { token, user } = data.data;
       localStorage.setItem("token", token);
       setCookie("user", user);
       dispatch(setModalAuthVisibility());
@@ -39,7 +40,7 @@ export const useRegisterMutation = () => {
     mutationFn: (data: object) =>
       axios({ url: "user/sign-up", method: "POST", body: data }),
     onSuccess: (data) => {
-      let { token, user } = data.data;
+      const { token, user } = data.data;
       localStorage.setItem("token", token);
       setCookie("user", user);
       dispatch(setModalAuthVisibility());
@@ -69,7 +70,7 @@ export const useLoginWithGoogle = () => {
     onSuccess: (data) => {
       console.log(data);
 
-      let { token, user } = data.data;
+      const { token, user } = data.data;
       localStorage.setItem("token", token);
       setCookie("user", user);
       dispatch(setModalAuthVisibility());
@@ -98,7 +99,7 @@ export const useRegisterWithGoogle = () => {
     onSuccess: (data) => {
       console.log(data);
 
-      let { token, user } = data.data;
+      const { token, user } = data.data;
       localStorage.setItem("token", token);
       setCookie("user", user);
       dispatch(setModalAuthVisibility());
@@ -160,12 +161,88 @@ export const useEditAddress = () => {
       return axios({
         url: "user/address",
         method: "POST",
-        body: data, 
+        body: data,
       });
     },
     onSuccess: (data) => {
-      notify("address")
+      notify("address");
       console.log(data);
+    },
+  });
+};
+
+const useDeleteOrderCashe = () => {
+  const queryClinet = useQueryClient();
+  return ({ _id }: { _id: string }) => {
+    queryClinet.setQueryData(
+      ["order-list"],
+      (oldData: OrderType[] | undefined) => {
+        if (oldData) {
+          return oldData.filter((value) => value._id !== _id);
+        } else {
+          return [];
+        }
+      }
+    );
+  };
+};
+export const useDeleteOrder = () => {
+  const axios = useAxios();
+  const deleteOrder = useDeleteOrderCashe();
+  const notify = NotificationApi();
+
+  return useMutation({
+    mutationFn: (data: { _id: string }) => {
+      deleteOrder(data);
+      return axios({ url: "order/delete-order", method: "DELETE", body: data });
+    },
+    onSuccess: () => {
+      notify("order");
+    },
+  });
+};
+
+export const useIsLiked = () => {
+  const axios = useAxios();
+  const notify = NotificationApi();
+
+  return useMutation({
+    mutationFn: (data: object) => {
+      return axios({ url: "user/create-wishlist", method: "POST", body: data });
+    },
+    onSuccess: () => {
+      notify("like");
+    },
+  });
+};
+export const useDeleteIsLiked = () => {
+  const axios = useAxios();
+  const notify = NotificationApi();
+
+  return useMutation({
+    mutationFn: (data: { _id: string }) => {
+      return axios({
+        url: "user/delete-wishlist",
+        method: "DELETE",
+        body: data,
+      });
+    },
+    onSuccess: () => {
+      notify("dislike");
+    },
+  });
+};
+
+export const useEditDetails = () => {
+  const axios = useAxios();
+  const notify = NotificationApi();
+
+  return useMutation({
+    mutationFn: (data: object) => {
+      return axios({ url: "user/account-details", method: "POST", body: data });
+    },
+    onSuccess: () => {
+      notify("details");
     },
   });
 };

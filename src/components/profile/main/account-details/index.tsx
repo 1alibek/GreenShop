@@ -1,18 +1,31 @@
 import { UploadOutlined } from "@ant-design/icons";
 import { Button, Form, Input, Upload } from "antd";
-import { AuthUser } from "../../../../@types";
+import type { AccountDetails } from "../../../../@types";
 import CookieUserInfo from "../../../../generic/cookies";
+import { useEditDetails } from "../../../../hooks/useQueryHandler/useQueryActions";
 
 const AccountDetails = () => {
-  const { getCookie } = CookieUserInfo();
-  const user: AuthUser = getCookie("user");
-  const updateDetails = (e: any) => {
-    console.log(e.profile_photo.file?.response?.image_url.url);
+  const { getCookie, setCookie } = CookieUserInfo();
+  const user = getCookie("user");
+  const { mutate } = useEditDetails();
+  const updageDetails = (e: AccountDetails) => {
+    mutate({
+      ...e,
+      _id: user._id,
+      profile_photo: e.profile_photo.file?.response?.image_url?.url,
+    });
+    setCookie("user", {
+      ...user,
+      ...e,
+      _id: user._id,
+      profile_photo: e.profile_photo.file?.response?.image_url?.url,
+    });
   };
+
   return (
     <div>
       <Form
-        onFinish={updateDetails}
+        onFinish={updageDetails}
         fields={[
           { name: ["name"], value: user?.name },
           { name: ["surname"], value: user?.surname },
@@ -21,7 +34,7 @@ const AccountDetails = () => {
           { name: ["username"], value: user?.username },
         ]}
         layout="vertical"
-        className="grid grid-cols-2 gap-5"
+        className="grid grid-cols-2 gap-5 max-[470px]:grid-cols-1"
       >
         <div>
           <Form.Item
@@ -66,14 +79,14 @@ const AccountDetails = () => {
             />
           </Form.Item>
           <Form.Item
-            name="image"
+            name="profile_photo"
             label="Image"
-            rules={[{ required: true, message: "Please enter image" }]}
+            rules={[{ required: true, message: "Please eneter  image" }]}
           >
             <Upload
               name="image"
               data={{ type: "image" }}
-              action="https://backend-n14.onrender.com/api/upload?access_token=64bebc1e2c6d3f056a8c85b7"
+              action="https://beckend-n14.onrender.com/api/upload?access_token=64bebc1e2c6d3f056a8c85b7"
               listType="picture"
               headers={{
                 Authorization: `Bearer ${localStorage.getItem("token")}`,

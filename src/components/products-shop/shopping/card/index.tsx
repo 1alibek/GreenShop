@@ -74,7 +74,7 @@ const Card: FC<CardDataType> = (props) => {
       <button
       className="  bottom-3 right-3 max-[420px]:absolute"
         onClick={() => {
-          dispatch(deletedData(_id)), notify("delete-data");
+          dispatch(deletedData(_id)); notify("delete-data");
         }}
       >
         <DeleteFilled className="text-[#727272] text-[20px] mx-auto" />

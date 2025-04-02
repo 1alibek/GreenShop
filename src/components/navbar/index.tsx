@@ -33,7 +33,7 @@ const {data}=useReduxSelector(state=>state.shopSlice)
   const { pathname } = useLocation();
 
   const { isAuthorization, getCookie } = CookieUserInfo();
-  let user = getCookie("user");
+  const user = getCookie("user");
 
   const navigate = useNavigate();
   return (
@@ -75,11 +75,14 @@ const {data}=useReduxSelector(state=>state.shopSlice)
         </button>
             </Badge>
         <button
-          onClick={() => {
-            isAuthorization
-              ? navigate("/profile")
-              : dispatch(setModalAuthVisibility());
-          }}
+        onClick={() => {
+          if (isAuthorization) {
+            navigate("/profile");
+          } else {
+            dispatch(setModalAuthVisibility());
+          }
+        }}
+        
           className="bg-primary text-white font-medium flex items-center gap-2 px-3 py-2 rounded-md border border-primary transition-all duration-300 hover:bg-transparent hover:text-primary max-[600px]:hidden"
         >
           {isAuthorization ? user.name : <>Login</>}

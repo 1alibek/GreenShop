@@ -14,10 +14,10 @@ const ProceedForm = () => {
   const auth: AuthUser | null = getCookie("user"); // auth null bo'lishi mumkinligini belgilash
   const { data, coupon } = useReduxSelector((state) => state.shopSlice);
   const totalPrice = data.reduce((acc, value) => (acc += value.userPrice), 16);
-  let total = coupon ? totalPrice - (totalPrice * coupon) / 100 : totalPrice;
+  const total = coupon ? totalPrice - (totalPrice * coupon) / 100 : totalPrice;
   const { mutate, isPending } = useMakeOrder();
   const order = (e: MakeOrderType) => {
-    let makeOrder = {
+    const makeOrder = {
       shop_list: data,
       billing_address: e,
       extra_shop_info: {
@@ -47,7 +47,7 @@ const ProceedForm = () => {
           { name: "phone_number", value: auth?.phone_number ?? "" },
         ]}
       >
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid grid-cols-2 gap-5 max-[450px]:grid-cols-1">
           <div>
             <Form.Item name="name" label="Name" rules={[{ required: true }]}>
               <Input placeholder="Type your first name..." />

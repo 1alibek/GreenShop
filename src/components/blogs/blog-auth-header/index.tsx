@@ -5,7 +5,7 @@ const BlogAuthHeader = () => {
     <div>
     <h1 className="font-bold text-2xl text-center py-3"> My Feed</h1>
   
-    <div className="flex justify-between items-center h-[35px] overflow-hidden rounded-md border border-primary w-[60%] mx-auto">
+    <div className="flex justify-between items-center h-[35px] overflow-hidden rounded-md border border-primary w-[60%] mx-auto max-[800px]:w-[70%] max-[500px]:w-[100%]">
       <input
         type="text"
         placeholder="Search text"

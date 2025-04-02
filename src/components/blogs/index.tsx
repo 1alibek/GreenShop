@@ -18,10 +18,10 @@ const BlogsComponent = () => {
   });
 
   return (
-    <section className="w-[90%] m-auto">
+    <section className="container2">
       {isAuthorization ? <BlogAuthHeader /> : <BlogHeader />}
 
-      <div className="grid grid-cols-3 gap-5 py-5">
+      <div className="grid grid-cols-3 gap-5 py-5 max-[800px]:grid-cols-2 max-[550px]:grid-cols-1">
         {isLoading || isError
           ? blog_card_loader()
           : data?.map((value) => {

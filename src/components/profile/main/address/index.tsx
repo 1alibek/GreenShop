@@ -1,5 +1,5 @@
 import { Form, Input, Button } from "antd";
-import { AuthUser } from "../../../../@types";
+import { AddressType } from "../../../../@types";
 import CookieUserInfo from "../../../../generic/cookies";
 import { useEditAddress } from "../../../../hooks/useQueryHandler/useQueryActions";
 import { LoadingOutlined } from "@ant-design/icons";
@@ -9,17 +9,19 @@ const Address = () => {
     "grid grid-cols-2 gap-4 max-[585px]:grid-cols-1 max-[585px]:gap-2";
 
   const { getCookie, setCookie } = CookieUserInfo();
-  const authUser: AuthUser = getCookie("user");
+  const authUser = getCookie("user");
   const { mutate, isPending } = useEditAddress();
-  const finish = (e: any) => {
+  const finish = (e: AddressType) => {
     mutate({ ...e, _id: authUser._id });
     setCookie("user", { ...authUser, ...e });
   };
 
   return (
-    <div className="p-5">
-      <h2 className="text-xl font-semibold">Billing Address</h2>
-      <p className="text-gray-600">
+    <div className="p-5 max-[500px]:p-0">
+      <h2 className="text-xl font-semibold max-[400px]:text-sm">
+        Billing Address
+      </h2>
+      <p className="text-gray-600 max-[500px]:hidden">
         The following addresses will be used on the checkout page by default.
       </p>
 

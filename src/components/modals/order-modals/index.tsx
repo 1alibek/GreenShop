@@ -9,12 +9,13 @@ import { order } from "../../../redux/shopSlice";
 const OrderModal = () => {
   const { data, coupon } = useReduxSelector((state) => state.shopSlice);
   const totalPrice = data.reduce((acc, value) => (acc += value.userPrice), 16);
-  let total = coupon ? totalPrice - (totalPrice * coupon) / 100 : totalPrice;
+  const total = coupon ? totalPrice - (totalPrice * coupon) / 100 : totalPrice;
   const { ordermodalVisibility } = useReduxSelector(
     (state) => state.modalSlice
   );
   const navigate = useNavigate();
   const dispatch = useReduxDispatch();
+
   const track = () => {
     navigate("/");
     dispatch(order())
@@ -23,25 +24,25 @@ const OrderModal = () => {
   return (
     <Modal
     onCancel={track}
-      width={"45%"}
       open={ordermodalVisibility}
       footer={false}
       title={"Order Confirmation"}
+      className="!w-[45%] max-[1100px]:!w-[70%] max-[700px]:!w-[80%]"
     >
-      <div className="flex items-start justify-between mt-5">
-        <div className="border-r pr-4">
+      <div className="flex items-start justify-between mt-5 max-[650px]:flex-wrap gap-2 max-[300px]:justify-center">
+        <div className="border-r pr-4 max-[300px]:border-none">
           <p>Order Number</p>
           <h2 className="font-bold">{Date.now()}</h2>
         </div>
-        <div className="border-r pr-4">
+        <div className="border-r pr-4 max-[300px]:border-none">
           <p>Date</p>
           <h2 className="font-bold">{String(new Date()).slice(0, 15)}</h2>
         </div>
-        <div className="border-r pr-4">
+        <div className="border-r pr-4 max-[300px]:border-none">
           <p>Total</p>
           <h2 className="font-bold">{total.toFixed(2)}</h2>
         </div>
-        <div className="border-r pr-4">
+        <div className="border-r pr-4 max-[300px]:border-none">
           <p>Payment Method</p>
           <h2 className="font-bold">Cash on delivery</h2>
         </div>
@@ -58,11 +59,11 @@ const OrderModal = () => {
       </div>
       <div className="flex items-center justify-between py-2 border-b border-primary">
         <p>Total Price</p>
-        <h3 className="font-bold text-primary">
-          With shipping $ {total.toFixed(2)}
+        <h3 className="font-bold text-primary ">
+         <p className="max-[350px]:hidden"> With shipping</p> $ {total.toFixed(2)}
         </h3>
       </div>
-      <p className="text-center w-[70%] mx-auto">
+      <p className="text-center w-[70%] mx-auto max-[400px]:w-full">
         Your order is currently being processed. You will receive an order
         confirmation email shortly with the expected delivery date for your
         items.
