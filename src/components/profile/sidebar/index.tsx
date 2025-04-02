@@ -23,7 +23,8 @@ const Sidebar = () => {
                   : "bg-white"
               }`}
           >
-            <Icon className={`text-xl ${path === pathnameSecond ? "text-green-500" : "text-gray-700"}`} />
+            <Icon />
+
             <h3 className="hidden md:block">{title}</h3>
           </div>
         ))}

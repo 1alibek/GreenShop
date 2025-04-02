@@ -3,7 +3,7 @@ import { useReduxDispatch, useReduxSelector } from "../../../hooks/useRedux";
 import Card from "../../proceed-checkout/proceed-total/card";
 import { setTrackmodalVisibility } from "../../../redux/modalSlice";
 import { useDeleteOrder } from "../../../hooks/useQueryHandler/useQueryActions";
-import type{ CardDataType } from "../../../@types";
+import type { CardDataType } from "../../../@types";
 
 const TrackModal = () => {
   const { trackmodalVisibility } = useReduxSelector(
@@ -17,7 +17,7 @@ const TrackModal = () => {
     <Modal
       onOk={() => {
         dispatch(setTrackmodalVisibility());
-        mutate({ _id: order?._id });
+        mutate({ _id: order?._id as string });
       }}
       okType="danger"
       okText={"Delete"}
