@@ -78,7 +78,7 @@ const Card: FC<CardType> = (props) => {
           </div>
           {isLiked ? (
             <div onClick={disLike} className={style_icons}>
-              <HeartFilled className="text-[22px] text-[red]" />
+              <HeartFilled className="text-[22px] text-primary" />
             </div>
           ) : (
             <div onClick={isLike} className={style_icons}>
