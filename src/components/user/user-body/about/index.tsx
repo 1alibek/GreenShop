@@ -1,5 +1,8 @@
-import {CalendarOutlined, TeamOutlined, HeartOutlined} from "@ant-design/icons"
 import {useParams} from "react-router-dom"
+
+//icon
+import {CalendarOutlined, TeamOutlined, HeartOutlined} from "@ant-design/icons"
+
 import UseQueryHandler from "../../../../hooks/useQueryHandler"
 
 const About = () => {

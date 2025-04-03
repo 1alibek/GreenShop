@@ -1,5 +1,7 @@
+//img
 import payment from "../../../assets/img/footer-icon/payment.png";
 
+//icon
 import icon1 from "../../../assets/icons/footer/1.svg";
 import icon2 from "../../../assets/icons/footer/2.svg";
 import icon3 from "../../../assets/icons/footer/3.svg";

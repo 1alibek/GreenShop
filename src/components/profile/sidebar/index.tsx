@@ -1,5 +1,7 @@
-import { LogoutOutlined } from "@ant-design/icons";
 import { Modal } from "antd"; 
+
+//icon
+import { LogoutOutlined } from "@ant-design/icons";
 
 import { path_profile } from "../../../utils";
 import { useLocation, useNavigate } from "react-router-dom";

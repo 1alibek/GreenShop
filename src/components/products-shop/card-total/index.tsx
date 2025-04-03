@@ -2,6 +2,7 @@ import { Form } from "antd";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
+//icon
 import { LoadingOutlined } from "@ant-design/icons";
 
 import Prices from "./prices";

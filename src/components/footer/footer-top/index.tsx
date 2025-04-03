@@ -50,14 +50,14 @@ const FooterTop = () => {
             Would you like to join newsletters?
           </p>
 
-          <div className="flex justify-between items-center h-[35px] overflow-hidden rounded-md border border-[#46a358]">
+          <div className="flex justify-between items-center h-[35px] overflow-hidden rounded-md border border-primary">
             <input
               type="text"
               placeholder="enter your email address..."
               className="h-full w-full outline-none px-2"
             />
 
-            <button className="h-full px-[20px] text-white bg-[#46a358] border-l border-primary transition-all duration-300 hover:bg-transparent hover:text-primary">
+            <button className="h-full px-[20px] text-white bg-primary border-l border-primary transition-all duration-300 hover:bg-transparent hover:text-primary">
               Join
             </button>
           </div>

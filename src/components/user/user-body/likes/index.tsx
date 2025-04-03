@@ -1,9 +1,8 @@
+import {Empty} from "antd"
+
 import type {CardType} from "../../../../@types"
 import Loader from "../../../../generic/loader"
 import UseQueryHandler from "../../../../hooks/useQueryHandler"
-
-
-import {Empty} from "antd"
 import Card from "../../../store-products/products/card"
 
 const Likes = () => {

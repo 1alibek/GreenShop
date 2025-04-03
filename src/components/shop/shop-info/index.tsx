@@ -1,6 +1,7 @@
 import { type FC } from "react";
 import { Rate, Skeleton } from "antd";
 
+//icon
 import { HeartOutlined } from "@ant-design/icons";
 
 import AvatarItem from "./avatar";

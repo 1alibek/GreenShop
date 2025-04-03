@@ -6,6 +6,7 @@ import {
   useRegisterWithGoogle,
 } from "../../../../hooks/useQueryHandler/useQueryActions";
 
+//icon
 import { LoadingOutlined } from "@ant-design/icons";
 import google from "../../../../assets/icons/google.svg";
 import facebook from "../../../../assets/icons/facebook.svg";

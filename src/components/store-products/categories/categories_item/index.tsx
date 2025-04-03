@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import { CategoryType } from "../../../../@types";
 import { useSearchParamsHandler } from "../../../../hooks/useSearchParams";
 

@@ -1,6 +1,5 @@
 import type {BlogTypeApi} from "../../../../@types"
 import {useSearchParamsHandler} from "../../../../hooks/useSearchParams"
-
 import BlogCard from "../../../blog/blog-card"
 import Loader from "../../../../generic/loader"
 import {useParams} from "react-router-dom"

@@ -73,7 +73,7 @@ const UserPostBlog = () => {
                                     __html: data?.content as string,
                                 }}></div>
                         </div>
-                        <div className="flex items-center gap-4 *:flex *:items-center *:gap-1 *:cursor-pointer mt-5 *:hover:text-[#46a358]">
+                        <div className="flex items-center gap-4 *:flex *:items-center *:gap-1 *:cursor-pointer mt-5 *:hover:text-primary">
                             <div>
                                 <EyeOutlined /> <p>{data?.views}</p>
                             </div>

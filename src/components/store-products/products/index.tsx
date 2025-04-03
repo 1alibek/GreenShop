@@ -1,8 +1,8 @@
 import { Empty } from "antd";
+
 import type { CardType, QueryType } from "../../../@types";
 import Loader from "../../../generic/loader";
 import UseQueryHandler from "../../../hooks/useQueryHandler";
-
 import Card from "./card";
 import ProductsTitle from "./products-title";
 import { useSearchParamsHandler } from "../../../hooks/useSearchParams";

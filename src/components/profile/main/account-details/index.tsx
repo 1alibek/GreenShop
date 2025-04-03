@@ -1,5 +1,8 @@
-import { UploadOutlined } from "@ant-design/icons";
 import { Button, Form, Input, Upload } from "antd";
+
+//icon
+import { UploadOutlined } from "@ant-design/icons";
+
 import type { AccountDetails } from "../../../../@types";
 import CookieUserInfo from "../../../../generic/cookies";
 import { useEditDetails } from "../../../../hooks/useQueryHandler/useQueryActions";

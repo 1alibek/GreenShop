@@ -1,5 +1,6 @@
 import { Modal, Select, Slider } from "antd";
 import { useState } from "react";
+
 import { title_category } from "../../../../utils";
 import { CgMenuRightAlt } from "react-icons/cg";
 import UseQueryHandler from "../../../../hooks/useQueryHandler";

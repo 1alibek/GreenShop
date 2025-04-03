@@ -1,3 +1,4 @@
+//img
 import logo from "../../../assets/icons/logo.svg"
 import icon1 from "../../../assets/icons/footer/6.svg"
 import icon2 from "../../../assets/icons/footer/7.svg"

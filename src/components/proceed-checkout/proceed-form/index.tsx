@@ -1,6 +1,9 @@
 import { Form, Input, Radio } from "antd";
 
+//img
 import img from "../../../assets/img/payment.png";
+
+//icon
 import { LoadingOutlined } from "@ant-design/icons";
 
 import CookieUserInfo from "../../../generic/cookies";

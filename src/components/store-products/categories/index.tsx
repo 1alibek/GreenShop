@@ -1,7 +1,6 @@
 import { CategoryType, QueryType } from "../../../@types";
 import Loader from "../../../generic/loader";
 import UseQueryHandler from "../../../hooks/useQueryHandler";
-
 import CategoriesItem from "./categories_item";
 import Discount from "./discount";
 import Price from "./price";

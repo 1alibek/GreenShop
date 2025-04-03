@@ -62,7 +62,7 @@ const Blog = () => {
                                     className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
                                 />
                             </div>
-                            <small className="font-medium text-[14px] leading-[114%] text-[#46a358] max-[540px]:text-[12px]">
+                            <small className="font-medium text-[14px] leading-[114%] text-primary max-[540px]:text-[12px]">
                                 {post.date}
                             </small>
                             <h3 className="font-bold text-[20px] leading-[130%] text-[#3d3d3d] max-[540px]:text-[18px]">
@@ -71,7 +71,7 @@ const Blog = () => {
                             <p className="font-normal text-[14px] leading-[127%] text-[#727272]">
                                 {post.description}
                             </p>
-                            <button className="text-[#3d3d3d] flex justify-start items-center gap-2.5 hover:text-[#46a358]">
+                            <button className="text-[#3d3d3d] flex justify-start items-center gap-2.5 hover:text-primary">
                                 Read More <PiArrowRight />
                             </button>
                         </div>

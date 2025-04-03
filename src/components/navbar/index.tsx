@@ -4,13 +4,13 @@ import { useState } from "react";
 
 import { useReduxDispatch, useReduxSelector } from "../../hooks/useRedux";
 import { setModalAuthVisibility } from "../../redux/modalSlice";
+import CookieUserInfo from "../../generic/cookies";
 
+//icon
 import logo from "../../assets/icons/logo.svg";
 import login from "../../assets/icons/login.svg";
 import shop from "../../assets/icons/shop.svg";
 import logoIcon from "../../assets/icons/logo-icon.svg";
-import CookieUserInfo from "../../generic/cookies";
-
 import { BiSearch } from "react-icons/bi";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { FaXmark } from "react-icons/fa6";

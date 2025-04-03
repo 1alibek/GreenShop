@@ -1,8 +1,7 @@
+import {Empty} from "antd"
+
 import type {CardType} from "../../../../@types"
 import Loader from "../../../../generic/loader"
-
-
-import {Empty} from "antd"
 import UseQueryHandler from "../../../../hooks/useQueryHandler"
 import Card from "../../../store-products/products/card"
 

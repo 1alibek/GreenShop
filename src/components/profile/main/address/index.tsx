@@ -1,8 +1,11 @@
 import { Form, Input, Button } from "antd";
+
+//icon
+import { LoadingOutlined } from "@ant-design/icons";
+
 import { AddressType } from "../../../../@types";
 import CookieUserInfo from "../../../../generic/cookies";
 import { useEditAddress } from "../../../../hooks/useQueryHandler/useQueryActions";
-import { LoadingOutlined } from "@ant-design/icons";
 
 const Address = () => {
   const grid_style_form_item =
