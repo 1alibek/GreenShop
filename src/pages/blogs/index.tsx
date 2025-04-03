@@ -1,9 +1,9 @@
-import BlogsComponent from "../../components/blogs";
+import BlogComponent from "../../components/blog";
 
 const Blogs = () => {
   return (
     <div>
-      <BlogsComponent />
+      <BlogComponent />
     </div>
   );
 };

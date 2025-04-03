@@ -1,13 +1,13 @@
 import { Modal, Select, Slider } from "antd";
 import { useState } from "react";
-import { UseSearchParams } from "../../../../hooks/useSearchParams";
 import { title_category } from "../../../../utils";
 import { CgMenuRightAlt } from "react-icons/cg";
 import UseQueryHandler from "../../../../hooks/useQueryHandler";
 import { CategoryType, QueryType } from "../../../../@types";
+import { useSearchParamsHandler } from "../../../../hooks/useSearchParams";
 
 const ProductsTitle = () => {
-  const { setParam, getParam } = UseSearchParams();
+  const { setParam, getParam } = useSearchParamsHandler();
   const range_min = getParam("range_min") || 0;
   const range_max = getParam("range_max") || 1000;
   const sort = getParam("sort") || "default-sorting";

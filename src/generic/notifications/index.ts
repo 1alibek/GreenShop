@@ -11,6 +11,8 @@ type NotificationsType =
   | "coupon"
   | "address"
   | "details"
+    | "follow"
+    | "unfollow"
   | "like"
   | "order"
   | "dislike";
@@ -65,6 +67,18 @@ export const NotificationApi = () => {
         return notification.success({
           message: "Order deleted !",
         });
+        case "follow":
+          return notification.success({
+              message: "You have followed this user.",
+              duration: 1,
+              placement: "top",
+          })
+      case "unfollow":
+          return notification.info({
+              message: "You have unfollowed this user.",
+              duration: 1,
+              placement: "top",
+          })
       default:
         break;
     }

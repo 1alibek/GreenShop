@@ -134,6 +134,45 @@ export const useGetCoupon = () => {
   });
 };
 
+
+
+export const useFollowUser = () => {
+  const axios = useAxios()
+  const notify = NotificationApi()
+
+  return useMutation({
+      mutationFn: (data: {_id: string}) => {
+          return axios({
+              url: "user/follow",
+              method: "POST",
+              body: data,
+          })
+      },
+      onSuccess: () => {
+          notify("follow")
+      },
+  })
+}
+
+export const useUnfollowUser = () => {
+  const axios = useAxios()
+  const notify = NotificationApi()
+
+  return useMutation({
+      mutationFn: (data: {_id: string}) => {
+          return axios({
+              url: "user/unfollow",
+              method: "POST",
+              body: data,
+          })
+      },
+      onSuccess: () => {
+          notify("unfollow")
+      },
+  })
+}
+
+
 export const useMakeOrder = () => {
   const dispatch = useReduxDispatch();
   const axios = useAxios();

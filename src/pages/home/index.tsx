@@ -1,4 +1,4 @@
-import Blog from "../../components/blog";
+import Blog from "../../components/blog-card";
 import DoubleCard from "../../components/double-card";
 import Showcase from "../../components/showcase";
 import StoreProducts from "../../components/store-products";

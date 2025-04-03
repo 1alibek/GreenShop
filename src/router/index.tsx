@@ -5,9 +5,10 @@ import MainLayout from "../components/main-layout";
 import ProductsShop from "../pages/products-shop";
 import ProceedCheckout from "../pages/proceed-checkout";
 import Blogs from "../pages/blogs";
-import Rendering from "../components/blogs/rendering";
 import Profile from "../pages/profile";
 import { path_profile } from "../utils";
+import UserPostBlog from "../components/blog/blog-userPost";
+import User from "../pages/user";
 
 export const router = createBrowserRouter([
   {
@@ -35,8 +36,8 @@ export const router = createBrowserRouter([
         element: <ProceedCheckout />,
       },
       {
-        path: "/blog/:created_by/:id",
-        element: <Rendering />,
+        path: "/blog/:id/:user_id",
+        element: <UserPostBlog />,
       },
       {
         path: "/profile",
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
           element: <Components />,
         })),
       },
+      {
+        path: "/user/:post_user_id",
+        element: <User />,
+    },
     ],
   },
 ]);

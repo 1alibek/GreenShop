@@ -179,8 +179,6 @@ interface ProfilePhoto {
   };
 }
 
-
-
 export interface BlogPosts {
   content: string;
   created_at: string;
@@ -214,4 +212,44 @@ export interface UserInfoType {
   wishlist?: object[];
   __v?: number;
   _id?: string;
+}
+export interface AuthUser2<T> {
+  _id?: string;
+  email?: string;
+  name?: string;
+  surname?: string;
+  profile_photo?: string;
+  create_account_limit?: number;
+  phone_number?: string;
+  wishlist?: T;
+  username?: string;
+  billing_address?: T;
+  followers?: string[];
+  permission?: {
+    create: boolean;
+    update: boolean;
+    delete: boolean;
+    read: boolean;
+  };
+}
+export interface BlogTypeApi {
+  data?: BlogType[]
+  isLoading: boolean
+  isError: boolean
+}
+export interface BlogTypeApiItem {
+  data?: BlogType;
+  isLoading: boolean;
+  isError: boolean;
+}
+export interface UserBodyTitleType {
+  id: string
+  title: string
+  Component: React.FC
+}
+
+export interface UserTypeApi {
+  data?: AuthUser2<CardType[]>;
+  isLoading: boolean;
+  isError: boolean;
 }
