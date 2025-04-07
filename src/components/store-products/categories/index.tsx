@@ -8,7 +8,7 @@ import Price from "./price";
 const Categories = () => {
   const { data, isLoading, isError }: QueryType<CategoryType[]> =
     UseQueryHandler({
-      url: "/flower/category",
+      url: "flower/category",
       pathname: "category",
     });
 
