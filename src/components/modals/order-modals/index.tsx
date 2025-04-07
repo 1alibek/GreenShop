@@ -17,7 +17,7 @@ const OrderModal = () => {
   const dispatch = useReduxDispatch();
 
   const track = () => {
-    navigate("/");
+    navigate("/profile/track-order");
     dispatch(order())
     dispatch(setOrderModalVisibility());
   };
