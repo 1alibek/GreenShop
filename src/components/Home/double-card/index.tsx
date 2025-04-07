@@ -1,7 +1,7 @@
 // img
-import card1 from "../../assets/img/card/1.png"
-import card2 from "../../assets/img/card/2.png"
-import line from "../../assets/img/card/line.png"
+import card1 from "../../../assets/img/card/1.png"
+import card2 from "../../../assets/img/card/2.png"
+import line from "../../../assets/img/card/line.png"
 
 // icons
 import {PiArrowRight} from "react-icons/pi"

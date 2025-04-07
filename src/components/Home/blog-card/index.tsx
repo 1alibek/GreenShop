@@ -1,8 +1,8 @@
 // img
-import card1 from "../../assets/img/blog/1.png"
-import card2 from "../../assets/img/blog/2.png"
-import card3 from "../../assets/img/blog/3.png"
-import card4 from "../../assets/img/blog/4.png"
+import card1 from "../../../assets/img/blog/1.png"
+import card2 from "../../../assets/img/blog/2.png"
+import card3 from "../../../assets/img/blog/3.png"
+import card4 from "../../../assets/img/blog/4.png"
 
 // icons
 import {PiArrowRight} from "react-icons/pi"

@@ -1,6 +1,6 @@
-import Blog from "../../components/blog-card";
-import DoubleCard from "../../components/double-card";
-import Showcase from "../../components/showcase";
+import Blog from "../../components/Home/blog-card";
+import DoubleCard from "../../components/Home/double-card";
+import Showcase from "../../components/Home/showcase";
 import StoreProducts from "../../components/store-products";
 
 const Home = () => {

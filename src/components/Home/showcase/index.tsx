@@ -2,8 +2,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import {  Autoplay, Pagination } from "swiper/modules";
 
 //img
-import showcaseImg1 from "../../assets/img/showcase-img1.png"
-import showcaseImg2 from "../../assets/img/showcase-img2.png"
+import showcaseImg1 from "../../../assets/img/showcase-img1.png"
+import showcaseImg2 from "../../../assets/img/showcase-img2.png"
 
 
 const Showcase = () => {

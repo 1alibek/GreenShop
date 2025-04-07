@@ -2,15 +2,15 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Badge, Drawer, DrawerProps } from "antd";
 import { useState } from "react";
 
-import { useReduxDispatch, useReduxSelector } from "../../hooks/useRedux";
-import { setModalAuthVisibility } from "../../redux/modalSlice";
-import CookieUserInfo from "../../generic/cookies";
+import { useReduxDispatch, useReduxSelector } from "../../../hooks/useRedux";
+import { setModalAuthVisibility } from "../../../redux/modalSlice";
+import CookieUserInfo from "../../../generic/cookies";
 
 //icon
-import logo from "../../assets/icons/logo.svg";
-import login from "../../assets/icons/login.svg";
-import shop from "../../assets/icons/shop.svg";
-import logoIcon from "../../assets/icons/logo-icon.svg";
+import logo from "../../../assets/icons/logo.svg";
+import login from "../../../assets/icons/login.svg";
+import shop from "../../../assets/icons/shop.svg";
+import logoIcon from "../../../assets/icons/logo-icon.svg";
 import { BiSearch } from "react-icons/bi";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { FaXmark } from "react-icons/fa6";
@@ -18,7 +18,7 @@ import { FaXmark } from "react-icons/fa6";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [placement] = useState<DrawerProps["placement"]>("left");
-  const { data } = useReduxSelector(state => state.shopSlice);
+  const { data } = useReduxSelector((state) => state.shopSlice);
 
   const dispatch = useReduxDispatch();
   const { pathname } = useLocation();
